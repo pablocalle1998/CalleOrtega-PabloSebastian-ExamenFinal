@@ -1,6 +1,8 @@
 package ec.edu.ups.entidad;
 
 import java.io.Serializable;
+import java.sql.Date;
+
 import javax.persistence.*;
 
 /**
@@ -17,6 +19,7 @@ public class CitaMedica implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codigo;
 	private String descripcion;
+	private Date fecha;
 	@ManyToOne
 	@JoinColumn
 	private Paciente paciente;
@@ -36,6 +39,14 @@ public class CitaMedica implements Serializable {
 	}
 	
 	
+	
+	public CitaMedica(String descripcion, Date fecha, Paciente paciente) {
+		super();
+		this.descripcion = descripcion;
+		this.fecha = fecha;
+		this.paciente = paciente;
+	}
+
 
 	public CitaMedica(String descripcion, Paciente paciente, SignosVitales signos) {
 		super();
@@ -43,30 +54,6 @@ public class CitaMedica implements Serializable {
 		this.paciente = paciente;
 		this.signos = signos;
 	}
-
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + codigo;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		CitaMedica other = (CitaMedica) obj;
-		if (codigo != other.codigo)
-			return false;
-		return true;
-	}
-
 
 
 	public int getCodigo() {
@@ -78,7 +65,16 @@ public class CitaMedica implements Serializable {
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
+	
+	
+	public Date getFecha() {
+		return fecha;
+	}
 
+
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
 
 
 	public String getDescripcion() {
@@ -116,13 +112,11 @@ public class CitaMedica implements Serializable {
 	}
 
 
-
 	@Override
 	public String toString() {
-		return "CitaMedica [codigo=" + codigo + ", descripcion=" + descripcion + ", paciente=" + paciente + ", signos="
-				+ signos + "]";
+		return "CitaMedica [codigo=" + codigo + ", descripcion=" + descripcion + ", fecha=" + fecha + ", paciente="
+				+ paciente + ", signos=" + signos + "]";
 	}
-	
 	
    
 }

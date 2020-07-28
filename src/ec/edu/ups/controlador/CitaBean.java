@@ -1,6 +1,7 @@
 package ec.edu.ups.controlador;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -30,7 +31,7 @@ public class CitaBean implements Serializable{
 	
 	private List<Paciente> listPaciente;
 	
-	private int codigoPaciente;
+	private String codigoPaciente;
 	private String descripcion;
 	
 	public CitaBean() {}
@@ -48,6 +49,8 @@ public class CitaBean implements Serializable{
 		paciente = ejbPacienteFacade.find(codigoPaciente);
 		System.out.println("paciente recuperado:"+paciente);
 		ejbCitaMedicaFacade.create(new CitaMedica(this.descripcion, paciente));
+		this.descripcion="";
+		this.codigoPaciente="";
 		System.out.println("exito");
 		
 		
@@ -86,11 +89,13 @@ public class CitaBean implements Serializable{
 		this.listPaciente = listPaciente;
 	}
 
-	public int getCodigoPaciente() {
+	
+
+	public String getCodigoPaciente() {
 		return codigoPaciente;
 	}
 
-	public void setCodigoPaciente(int codigoPaciente) {
+	public void setCodigoPaciente(String codigoPaciente) {
 		this.codigoPaciente = codigoPaciente;
 	}
 

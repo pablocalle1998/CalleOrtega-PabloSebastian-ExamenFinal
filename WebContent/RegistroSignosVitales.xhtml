@@ -18,12 +18,24 @@
 			
 		</h:selectOneMenu><br/>
 		
-		<label>Cita</label>
-		<h:inputText value="#{citaBean.descripcion}"/>
+		<label>Frecuencia Cardiaca</label>
+		<h:inputText value="#{signosBean.freCardiaca}"/><br/>
+		
+		<label>Frecuencia Respiratoria</label>
+		<h:inputText value="#{signosBean.freResp}"/><br/>
+		
+		<label>Presion</label>
+		<h:inputText value="#{signosBean.presion}"/><br/>
+		
+		<label>Saturacion</label>
+		<h:inputText value="#{signosBean.saturacion}"/><br/>
+		
+		<label>Temperatura</label>
+		<h:inputText value="#{signosBean.temperatura}"/><br/>
 		
 		
 		
-		<h:commandButton action="#{citaBean.add}">Agendar cita</h:commandButton>
+		<h:commandButton action="#{signosBean.add}">Registrar Signos</h:commandButton>
 			
 		
 	</h:form>

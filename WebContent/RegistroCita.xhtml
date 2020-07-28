@@ -16,7 +16,7 @@
 		
 		<label>Paciente</label>
 		<h:selectOneMenu value="#{citaBean.codigoPaciente}">
-			<f:selectItems value="#{citaBean.listPaciente}" var="p" itemValue="#{p.codigo}" itemLabel="#{p.nombres}"/>
+			<f:selectItems value="#{citaBean.listPaciente}" var="p" itemValue="#{p.cedula}" itemLabel="#{p.nombres}"/>
 			
 		</h:selectOneMenu>
 		

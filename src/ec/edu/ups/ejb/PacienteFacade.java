@@ -1,6 +1,9 @@
 package ec.edu.ups.ejb;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
+import javax.management.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -22,4 +25,8 @@ public class PacienteFacade extends AbstractFacade<Paciente>{
 	protected EntityManager getEntityManager() {
 		return em;
 	}
+	
+	/*public List<Paciente> buscarCitas(){
+		Query nq = em.createNativeQuery("SELECT * FROM ")
+	}*/
 }
