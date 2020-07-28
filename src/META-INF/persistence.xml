@@ -4,7 +4,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
 	<persistence-unit name="Examen" transaction-type="JTA">
-		<jta-data-source>jdbc/__examen</jta-data-source>
+		<jta-data-source>jdbc/__ex</jta-data-source>
 		<class>ec.edu.ups.entidad.Paciente</class>
 		<class>ec.edu.ups.entidad.CitaMedica</class>
 		<class>ec.edu.ups.entidad.SignosVitales</class>
