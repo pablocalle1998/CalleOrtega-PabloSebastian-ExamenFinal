@@ -12,6 +12,7 @@ import javax.inject.Named;
 import ec.edu.ups.ejb.CitaMedicaFacade;
 import ec.edu.ups.ejb.SignosVitalesFacade;
 import ec.edu.ups.entidad.CitaMedica;
+import ec.edu.ups.entidad.SignosVitales;
 
 @FacesConfig(version = FacesConfig.Version.JSF_2_3)
 @Named
@@ -27,11 +28,11 @@ public class SignosBean implements Serializable{
 	private int codigoCita;
 	private List<CitaMedica> listaCita;
 	
-	private double freCardiaca;
-	private double freResp;
-	private double presion;
-	private double saturacion;
-	private double temperatura;
+	private String freCardiaca;
+	private String freResp;
+	private String presion;
+	private String saturacion;
+	private String temperatura;
 	
 	public SignosBean() {}
 	
@@ -39,6 +40,24 @@ public class SignosBean implements Serializable{
 	public void init() {
 		listaCita = ejbCitaMedicaFacade.findAll();
 		System.out.println(listaCita);
+	}
+	
+	
+	public String add() {
+		
+		CitaMedica cita = new CitaMedica();
+		cita = ejbCitaMedicaFacade.find(codigoCita);
+		System.out.println("cita recuperada:"+cita);
+		double frecuenciaCardiaca = Double.parseDouble(this.freCardiaca);
+		double frecuenciaRespiratoria = Double.parseDouble(this.freResp);
+		double presion  = Double.parseDouble(this.presion);
+		double saturacion = Double.parseDouble(this.saturacion);
+		double temperatura = Double.parseDouble(this.temperatura);
+		
+		ejbSignosVitalesFacade.create(new SignosVitales(presion, frecuenciaCardiaca, frecuenciaRespiratoria, temperatura, saturacion, cita));
+		System.out.println("registro con exito");
+		
+		return null;
 	}
 
 	public SignosVitalesFacade getEjbSignosVitalesFacade() {
@@ -73,43 +92,44 @@ public class SignosBean implements Serializable{
 		this.listaCita = listaCita;
 	}
 
-	public double getFreCardiaca() {
+
+	public String getFreCardiaca() {
 		return freCardiaca;
 	}
 
-	public void setFreCardiaca(double freCardiaca) {
+	public void setFreCardiaca(String freCardiaca) {
 		this.freCardiaca = freCardiaca;
 	}
 
-	public double getFreResp() {
+	public String getFreResp() {
 		return freResp;
 	}
 
-	public void setFreResp(double freResp) {
+	public void setFreResp(String freResp) {
 		this.freResp = freResp;
 	}
 
-	public double getPresion() {
+	public String getPresion() {
 		return presion;
 	}
 
-	public void setPresion(double presion) {
+	public void setPresion(String presion) {
 		this.presion = presion;
 	}
 
-	public double getSaturacion() {
+	public String getSaturacion() {
 		return saturacion;
 	}
 
-	public void setSaturacion(double saturacion) {
+	public void setSaturacion(String saturacion) {
 		this.saturacion = saturacion;
 	}
 
-	public double getTemperatura() {
+	public String getTemperatura() {
 		return temperatura;
 	}
 
-	public void setTemperatura(double temperatura) {
+	public void setTemperatura(String temperatura) {
 		this.temperatura = temperatura;
 	}
 

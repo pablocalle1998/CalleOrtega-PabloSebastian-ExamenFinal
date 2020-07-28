@@ -30,10 +30,9 @@ public class SignosVitales implements Serializable {
 	}
 	
 	
-	public SignosVitales(int codigo, double presion, double frecuenciaCardiaca, double frecuenciaRespiratoria,
+	public SignosVitales(double presion, double frecuenciaCardiaca, double frecuenciaRespiratoria,
 			double temperatura, double saturacion, CitaMedica cita) {
 		super();
-		this.codigo = codigo;
 		this.presion = presion;
 		this.frecuenciaCardiaca = frecuenciaCardiaca;
 		this.frecuenciaRespiratoria = frecuenciaRespiratoria;
