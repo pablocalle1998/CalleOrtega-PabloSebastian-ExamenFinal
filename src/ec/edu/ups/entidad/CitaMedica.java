@@ -29,16 +29,20 @@ public class CitaMedica implements Serializable {
 	}
 	
 
-	public CitaMedica(int codigo, String descripcion, Paciente paciente, SignosVitales signos) {
+	public CitaMedica(String descripcion, Paciente paciente) {
 		super();
-		this.codigo = codigo;
+		this.descripcion = descripcion;
+		this.paciente = paciente;
+	}
+	
+	
+
+	public CitaMedica(String descripcion, Paciente paciente, SignosVitales signos) {
+		super();
 		this.descripcion = descripcion;
 		this.paciente = paciente;
 		this.signos = signos;
 	}
-
-
-
 
 
 	@Override

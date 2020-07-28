@@ -10,5 +10,20 @@
 </head>
 <h:body id="page-top">
 
+	<h:form>
+		<label>Motivo</label>
+		<h:inputText value="#{citaBean.descripcion}"/>
+		
+		<label>Paciente</label>
+		<h:selectOneMenu value="#{citaBean.codigoPaciente}">
+			<f:selectItems value="#{citaBean.listPaciente}" var="p" itemValue="#{p.codigo}" itemLabel="#{p.nombres}"/>
+			
+		</h:selectOneMenu>
+		
+		<h:commandButton action="#{citaBean.add}">Agendar cita</h:commandButton>
+			
+		
+	</h:form>
+
 </h:body>
 </html>
