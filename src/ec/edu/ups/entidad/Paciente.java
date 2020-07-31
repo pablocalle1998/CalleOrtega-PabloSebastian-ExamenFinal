@@ -27,7 +27,11 @@ public class Paciente implements Serializable {
 	private String correo;
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "paciente")
 	private List<CitaMedica> citas;
-
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "paciente")
+	private List<Sintomas> sintomas;
+	
+	
 	public Paciente() {
 		super();
 	}
